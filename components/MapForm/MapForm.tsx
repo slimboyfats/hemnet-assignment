@@ -7,7 +7,9 @@ interface FormElement extends HTMLFormElement {
 const MapForm: FunctionComponent = () => {
   const goToMap = (event: React.FormEvent<FormElement>) => {
     event.preventDefault()
-    window.location.href = `/map/${event.currentTarget.mapId.value}`
+    if (event.currentTarget.mapId.value) {
+      window.location.href = `/map/${event.currentTarget.mapId.value}`
+    }
   }
   return (
     <form onSubmit={goToMap}>
