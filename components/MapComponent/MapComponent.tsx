@@ -14,7 +14,7 @@ const MapComponent: FunctionComponent<MapComponentProps> = ({ markers }) => {
   return (
     <div className="m-4 flex flex-auto">
       <MapContainer
-        center={markers?.[0].location.coordinates}
+        center={markers?.[0]?.location.coordinates}
         zoom={14}
         scrollWheelZoom={false}
         style={{ flex: '1 1 auto' }}
