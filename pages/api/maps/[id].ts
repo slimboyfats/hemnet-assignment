@@ -1,5 +1,10 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 
+export async function getMap(id: string): Promise<Response> {
+  const data = await fetch(`https://cartes.io/api/maps/${id}`)
+  return data
+}
+
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
@@ -7,7 +12,7 @@ export default async function handler(
   const { id } = req.query
 
   try {
-    const data = await fetch(`https://cartes.io/api/maps/${id}`)
+    const data = await getMap(id as string)
     const status: number = data.status
     if (status === 200) {
       const json = await data.json()

@@ -1,6 +1,6 @@
 import type { NextPage, GetStaticProps, GetStaticPaths } from 'next'
 import type { Markers, Map } from 'types'
-
+import { getMap } from 'pages/api/maps/[id]'
 import Head from 'next/head'
 import dynamic from 'next/dynamic'
 import useSWR from 'swr'
@@ -55,14 +55,15 @@ const Map: NextPage<Props> = ({ map }) => {
 export default Map
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const res = await fetch(`http://localhost:3000/api/maps/${params?.id}`)
-  const map: Map = await res.json()
+  const res = await getMap(params?.id as string)
 
   if (res.status === 404) {
     return {
       notFound: true,
     }
   }
+
+  const map: Map = await res.json()
 
   return {
     props: {
