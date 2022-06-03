@@ -1,3 +1,26 @@
+import { type LatLngExpression } from 'leaflet'
+
+interface Marker {
+  id: number
+  location: {
+    type: string
+    coordinates: LatLngExpression
+  }
+  category_id: number
+  created_at: string
+  updated_at: string
+  description: string
+  expires_at: string | null
+  is_spam: boolean
+  link: string | null
+  category: {
+    id: number
+    name: string
+    slug: string
+    icon: string
+  }
+}
+
 export interface Map {
   slug: string
   title: string
@@ -21,3 +44,5 @@ export interface Category {
   icon: string
   markers_count: number
 }
+
+export type Markers = Marker[]
