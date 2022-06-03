@@ -9,11 +9,12 @@ export default async function handler(
   try {
     const data = await fetch(`https://cartes.io/api/maps/${id}/markers`)
     const status: number = data.status
-    if (status === 200) {
+
+    if (status === 404) {
+      res.status(404).json({ error: 'markers not found' })
+    } else {
       const json = await data.json()
       res.status(data.status).json(json)
-    } else if (status === 404) {
-      res.status(404).json({ error: 'markers not found' })
     }
   } catch (err) {
     res.status(500).json({ error: 'failed to load data' })
