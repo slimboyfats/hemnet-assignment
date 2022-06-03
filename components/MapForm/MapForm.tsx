@@ -17,7 +17,8 @@ const MapForm: FunctionComponent = () => {
         Type a map id from{' '}
         <a
           className="font-bold text-blue-500 hover:underline"
-          href="https://www.cartes.io"
+          href="https://cartes.io/"
+          target="_blank"
         >
           Cartes.io
         </a>
