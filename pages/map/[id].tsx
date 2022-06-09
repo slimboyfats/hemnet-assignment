@@ -1,10 +1,12 @@
 import type { NextPage, GetStaticProps, GetStaticPaths } from 'next'
 import type { Markers, Map } from 'types'
+import { useState } from 'react'
 import { getMap } from 'pages/api/maps/[id]'
 import Head from 'next/head'
 import dynamic from 'next/dynamic'
 import useSWR from 'swr'
 import MapForm from 'components/MapForm/MapForm'
+import MarkerList from 'components/MarkerList/MarkerList'
 
 const MapComponent = dynamic(
   () => import('../../components/MapComponent/MapComponent'),
@@ -18,6 +20,7 @@ type Props = {
 }
 
 const Map: NextPage<Props> = ({ map }) => {
+  const [selectedMarker, setSelectedMarker] = useState<number | undefined>()
   const { data, error } = useSWR<Markers, Error>(
     `/api/markers/${map.uuid}`,
     fetcher
@@ -40,8 +43,13 @@ const Map: NextPage<Props> = ({ map }) => {
         </p>
 
         {data && (
-          <div className="mb-10 flex flex-auto shadow-2xl">
-            <MapComponent markers={data} />
+          <div className="mb-10 flex flex-auto flex-col border-t-2 border-black shadow-2xl md:flex-row md:border-0">
+            <MarkerList
+              markers={data}
+              setSelectedMarker={setSelectedMarker}
+              selectedMarker={selectedMarker}
+            />
+            <MapComponent markers={data} selectedMarker={selectedMarker} />
           </div>
         )}
         {error && (
