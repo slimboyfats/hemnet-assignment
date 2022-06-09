@@ -16,7 +16,7 @@ const MarkerList: FunctionComponent<MarkerListProps> = ({
     setSelectedMarker(id)
   }
   return (
-    <ul className="flex flex-col">
+    <ul className="flex max-h-96 flex-col overflow-scroll md:max-h-full md:overflow-auto">
       {markers?.map((marker) => (
         <li key={marker.id}>
           <button
