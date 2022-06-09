@@ -18,7 +18,7 @@ const MarkerList: FunctionComponent<MarkerListProps> = ({
   return (
     <ul className="flex flex-col">
       {markers?.map((marker) => (
-        <li>
+        <li key={marker.id}>
           <button
             className={` w-full bg-green-200 px-4 py-2 transition-all hover:bg-green-100  focus:bg-green-500 ${
               selectedMarker === marker.id && 'bg-green-500'
