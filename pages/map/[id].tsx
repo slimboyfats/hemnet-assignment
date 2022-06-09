@@ -43,7 +43,7 @@ const Map: NextPage<Props> = ({ map }) => {
         </p>
 
         {data && (
-          <div className="mb-10 flex flex-auto flex-col border-t-2 border-black shadow-2xl md:flex-row md:border-0">
+          <div className="mb-10 flex flex-auto flex-col border-t-2 border-black bg-gray-100 shadow-2xl md:flex-row md:border-0">
             <MarkerList
               markers={data}
               setSelectedMarker={setSelectedMarker}
