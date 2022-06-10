@@ -4,3 +4,4 @@ This repository is made for Hemnet. It's build using [Next.js](https://nextjs.or
 The purpose of this repository is to fetch data from [Cartes.io](https://cartes.io/) using a uuid and present the map with the markers.
 
 Example UUID: d776b42e-0c5f-4535-b351-bc0c4f412006
+Example UUID with many markers: 048eebe4-8dac-46e2-a947-50b6b8062fec
