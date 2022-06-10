@@ -16,13 +16,13 @@ const MarkerList: FunctionComponent<MarkerListProps> = ({
     setSelectedMarker(id)
   }
   return (
-    <div>
-      <h3 className="my-2 text-lg  font-bold">Markers</h3>
-      <ul className="flex max-h-[25vh] flex-col overflow-scroll md:max-h-full md:overflow-auto">
+    <div className="flex flex-col md:w-80">
+      <h3 className="text-md my-2 font-bold">Markers</h3>
+      <ul className="flex max-h-[15vh] flex-col overflow-scroll md:max-h-full md:overflow-auto">
         {markers?.map((marker) => (
-          <li key={marker.id}>
+          <li key={marker.id} className="border-x-0 border-b border-green-300">
             <button
-              className={` w-full bg-green-200 px-4 py-2 transition-all hover:bg-green-100  focus:bg-green-500 ${
+              className={`min-h-[2.25rem] w-full bg-green-200 px-4 py-2 transition-all hover:bg-green-100  focus:bg-green-500 ${
                 selectedMarker === marker.id && 'bg-green-500'
               }`}
               onClick={() => onClickHandler(marker.id)}
