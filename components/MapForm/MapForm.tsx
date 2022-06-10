@@ -16,7 +16,7 @@ const MapForm: FunctionComponent = () => {
       <label className="mb-2 block" htmlFor="mapId">
         Type a map id from{' '}
         <a
-          className="font-bold text-blue-500 hover:underline"
+          className="font-bold text-blue-700 hover:underline"
           href="https://cartes.io/"
           target="_blank"
         >
