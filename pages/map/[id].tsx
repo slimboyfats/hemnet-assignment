@@ -36,7 +36,7 @@ const Map: NextPage<Props> = ({ map }) => {
 
       <main className="flex w-full max-w-5xl flex-auto flex-col p-4 text-center">
         <h1 className="mb-4 text-4xl font-bold">Hemnet assignment</h1>
-        <div className="mb-10">
+        <div className="mb-4 md:mb-8">
           <MapForm />
         </div>
         <div className="mb-4">
@@ -44,7 +44,7 @@ const Map: NextPage<Props> = ({ map }) => {
           <p className="mb-4">{map.description && <> {map.description}</>}</p>
         </div>
 
-        <div className="mb-10 flex max-h-96 flex-auto flex-col justify-center border border-gray-300 bg-gray-100 drop-shadow-2xl md:flex-row">
+        <div className="md-4 flex max-h-96 flex-auto flex-col justify-center border border-gray-300 bg-gray-100 drop-shadow-2xl md:mb-8 md:flex-row">
           {!data && isValidating && <Loader />}
           {data && (
             <>

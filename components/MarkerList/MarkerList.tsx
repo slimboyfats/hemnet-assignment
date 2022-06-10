@@ -17,7 +17,7 @@ const MarkerList: FunctionComponent<MarkerListProps> = ({
   }
   return (
     <fieldset className="flex flex-col md:w-80">
-      <legend className="text-md my-2 font-bold">Markers</legend>
+      <legend className="text-md py-2 font-bold">Markers</legend>
       <div className="box-border flex max-h-[15vh] flex-col overflow-scroll md:max-h-full md:overflow-auto">
         {markers?.map((marker) => (
           <label
