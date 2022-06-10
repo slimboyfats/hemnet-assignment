@@ -16,23 +16,29 @@ const MarkerList: FunctionComponent<MarkerListProps> = ({
     setSelectedMarker(id)
   }
   return (
-    <div className="flex flex-col md:w-80">
-      <h3 className="text-md my-2 font-bold">Markers</h3>
-      <ul className="flex max-h-[15vh] flex-col overflow-scroll md:max-h-full md:overflow-auto">
+    <fieldset className="flex flex-col md:w-80">
+      <legend className="text-md my-2 font-bold">Markers</legend>
+      <div className="box-border flex max-h-[15vh] flex-col overflow-scroll md:max-h-full md:overflow-auto">
         {markers?.map((marker) => (
-          <li key={marker.id} className="border-x-0 border-b border-green-300">
-            <button
-              className={`min-h-[2.25rem] w-full bg-green-200 px-4 py-2 transition-all hover:bg-green-100  focus:bg-green-500 ${
-                selectedMarker === marker.id && 'bg-green-500'
-              }`}
-              onClick={() => onClickHandler(marker.id)}
-            >
-              {marker.description}
-            </button>
-          </li>
+          <label
+            key={marker.id}
+            className={`${
+              selectedMarker === marker.id && 'bg-green-500'
+            } flex min-h-[2.5rem] w-full cursor-pointer items-baseline gap-1 border-x-0 border-b border-green-300 bg-green-200 px-4 py-2 transition-all hover:bg-green-100 focus:bg-green-500`}
+          >
+            <input
+              type="radio"
+              name="marker"
+              id={marker.id.toString()}
+              className=""
+              onChange={() => onClickHandler(marker.id)}
+              value={marker.id}
+            />
+            {marker.description ? marker.description : `Markerid: ${marker.id}`}
+          </label>
         ))}
-      </ul>
-    </div>
+      </div>
+    </fieldset>
   )
 }
 
